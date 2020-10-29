@@ -1,13 +1,15 @@
 #include <iostream>
 using namespace std;
+
 class Node {
     Node* link;
     int data;
+
 public:
     Node(int val = 0) : data(val), link(NULL) { }
     Node* getLink() { return link; }
     void setLink(Node* next) { link = next; }
-    void display() { printf(" <%2d>", data); }
+    void display() { cout<<"<"<<data<<"> "; }
     bool hasData(int val) { return data == val; }
     void insertNext(Node* n) {
         if (n != NULL) {
@@ -25,6 +27,7 @@ public:
 class LinkedList {
     Node org; // 헤드 노드 ->  헤드 포인터 x
     int nodeSize;
+
 public:
     LinkedList() : org(0), nodeSize(0) { }    // 생성자
     ~LinkedList() { clear(); }     // 소멸자
@@ -46,11 +49,11 @@ public:
         }
         return n;
     }
+
     //리스트 항목 개수를 반환
     int size() {
         return nodeSize;
     }
-
 
     // 리스트의 어떤 위치에 항목 삽입
     void insert(int pos, Node* n) {
@@ -70,7 +73,7 @@ public:
     // 화면에 보기 좋게 출력
     void display(string str) {
         cout << str;
-        printf("[전체 항목 수 = %2d] : ", size());
+        cout <<"[전체 항목 수 = " << size() << "] : ";
         for (Node* p = getHead(); p != NULL; p = p->getLink())
             p->display();
         cout << endl;
