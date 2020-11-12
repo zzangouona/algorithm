@@ -8,7 +8,7 @@ using namespace std;
 #define HEIGHT 9
 
 //다중함수 호출 함수
-void labelComponent(unsigned char img[HEIGHT][WIDTH],int x,int y,int label){
+void labelComponent(unsigned int img[HEIGHT][WIDTH],int x,int y,int label){
     if( x<0 || y<0 || x>=WIDTH || y>=HEIGHT ) return;//이미지 크기 보다 크면 영상의 밖이면 나간다
 
     if( img[y][x] == 9 ) {// 처리가 안된 전경 화소이면
@@ -24,24 +24,24 @@ void labelComponent(unsigned char img[HEIGHT][WIDTH],int x,int y,int label){
 
 
 // 이진 영상의 영역 채색(blob coloring) 함수
-void blobColoring(unsigned char img[HEIGHT][WIDTH]){
+void blobColoring(unsigned int img[HEIGHT][WIDTH]){
     int label = 1; // label은 1부터 시작함
     // 영상의 모든 화소에 대해
     for (int y = 0; y < HEIGHT; y++) {
         for (int x = 0; x < WIDTH; x++) {
             if (img[y][x] == 9)// 처리가 안 된 전경 화소이면
-                labelComponent(img, x, y, label++);// 연결화소 채색 시작
+                labelComponent(img, x, y, label++);// 연결된 화소 색칠 시작(채색 시작)
         }
     }
 }
 
 
-void printImage(unsigned char img[HEIGHT][WIDTH], string msg) {
+void printImage(unsigned int img[HEIGHT][WIDTH], string msg) {
     cout << msg << endl;
     for (int y = 0; y < HEIGHT; y++) {
         for (int x = 0; x < WIDTH; x++) {
             if (img[y][x] == 0)
-                cout << '*';
+                cout << '.';
             else
                 cout << img[y][x];
         }
@@ -51,9 +51,11 @@ void printImage(unsigned char img[HEIGHT][WIDTH], string msg) {
 }
 
 
-int main()
-{
-    unsigned char image[HEIGHT][WIDTH] = {
+int main(){
+    //unsigned을 쓴 이유
+    //pixel 하나를 표현할때 양수값만 들어가서 unsigned 타입으로 선언한다.
+    //일반적으로 이미지관 배열은 unsigned로 선언한다고한다.
+    unsigned int image[HEIGHT][WIDTH] = {
             0,0,0,0,0,0,9,0,0,0,0,9,9,9,9,0,0,9,9,0,
             9,9,9,9,9,0,9,0,0,0,0,0,0,0,0,9,0,0,9,9,
             0,0,9,0,0,0,9,0,0,0,0,9,9,9,9,9,0,0,9,9,
