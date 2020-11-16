@@ -6,7 +6,6 @@
 #include <stdio.h>
 
 //이진노드 클래스
-//주석추가
 class BinaryNode{
 protected://상속을 고려하여 데이터 멤버를 protected로 선언
     int			data; //데이
