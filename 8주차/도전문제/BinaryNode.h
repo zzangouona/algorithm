@@ -6,13 +6,14 @@
 #include <stdio.h>
 
 //이진노드 클래스
+//주석추가
 class BinaryNode{
 protected://상속을 고려하여 데이터 멤버를 protected로 선언
     int			data; //데이
     BinaryNode	*left; //왼쪽자식 포인터 변수
     BinaryNode	*right; //오른쪽자식 포인터 변수
 public:
-    //생성자ㅌ
+    //생자ㅌ
     BinaryNode( int val=0, BinaryNode *l=NULL, BinaryNode *r=NULL)
             : data(val), left(l), right(r) { }
     ~BinaryNode()	{ }

@@ -6,6 +6,7 @@
 #include "BinaryNode.h"
 #include "CircularQueue.h"
 //이진트리 클래스
+//주석추가
 class BinaryTree
 {
     BinaryNode*	root; //루트 노드 포인터
