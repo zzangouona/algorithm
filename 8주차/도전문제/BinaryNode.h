@@ -3,16 +3,17 @@
 //
 
 #pragma once
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 //이진노드 클래스
 class BinaryNode{
 protected://상속을 고려하여 데이터 멤버를 protected로 선언
-    int			data; //데이
+    int			data; //데이터
     BinaryNode	*left; //왼쪽자식 포인터 변수
     BinaryNode	*right; //오른쪽자식 포인터 변수
 public:
-    //생자ㅌ
+    //생성자
     BinaryNode( int val=0, BinaryNode *l=NULL, BinaryNode *r=NULL)
             : data(val), left(l), right(r) { }
     ~BinaryNode()	{ }

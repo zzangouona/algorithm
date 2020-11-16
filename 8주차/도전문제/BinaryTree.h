@@ -27,14 +27,14 @@ public:
     int	getHeight()	{ return isEmpty() ? 0 : getHeight(root); }
 
     //순환 함수 접근
-    void inorder()	{ printf("\n   inorder: "); inorder(root); }
-    void preorder()	{ printf("\n  preorder: "); preorder(root); }
-    void postorder(){ printf("\n postorder: "); postorder(root); }
+    void inorder()	{ cout<<endl<<"  inorder: "; inorder(root); }
+    void preorder()	{ cout<<endl<<"  preorder: "; preorder(root); }
+    void postorder(){ cout<<endl<<"  postorder: "; postorder(root); }
 
     //levelorder
     void levelorder( ) {
         //루트 노드 레벨이 1이고 아래로 내려갈수록 레벨이 증가를 한다.
-        printf("\nlevelorder: ");
+        cout << endl <<"  levelorder: ";
         if( !isEmpty() ) {
             CircularQueue q; //큐 생성
             q.enqueue( root ); //트리의 루트 큐 삽입
@@ -42,13 +42,13 @@ public:
                 BinaryNode* n = q.dequeue(); //맨앞 데이터 꺼냄
                 if( n != NULL ) {//꺼낸데이터가 null이 아닐 경우
                     //동일한 레벨의 경우에는 좌에서 우로 방문한다. 큐를 사용한다.
-                    printf(" [%c] ", n->getData()); //출력
+                    cout <<" [" << (char)n->getData() <<"] "; //출력
                     q.enqueue(n->getLeft ());//왼쪽 노드 검사 및 큐에 삽입
                     q.enqueue(n->getRight());//오른쪽 노드 검사 및 큐에 삽입
                 }
             }
         }
-        printf("\n");
+        cout << endl;
     }
 
     //전체 노드 개수
@@ -109,7 +109,7 @@ private:
         if( node != NULL ) {//node가 NULL이 아닌 경우 실행
             //1. 왼쪽 서브트리 방문, 2. 루트 노드 처리, 3. 오른쪽 서브트리 방문
             if( node->getLeft() != NULL ) inorder(node->getLeft()); //왼쪽 서브 트리 처리
-            printf( " [%c] ", node->getData()); //현재 노드 처리
+            cout <<" [" << (char)node->getData() <<"] "; //현재 노드 처리
             if( node->getRight()!= NULL ) inorder(node->getRight()); //오른쪽 서브트리 처리
         }
     }
@@ -118,7 +118,7 @@ private:
     void preorder(BinaryNode *node) {
         if( node != NULL ) {//node가 NULL이 아닌 경우 실행
             //1. 루트 노드 처리, 2. 왼쪽 서브트리 방문, 3. 오른쪽 서브트리 방문
-            printf( " [%c] ", node->getData());
+            cout <<" [" << (char)node->getData() <<"] ";
             if( node->getLeft() != NULL ) preorder(node->getLeft());
             if( node->getRight()!= NULL ) preorder(node->getRight());
         }
@@ -130,7 +130,7 @@ private:
             //1. 왼쪽 서브트리 방문, 2. 오른쪽 서브트리 방문, 3. 루트 노드 처
             if( node->getLeft() != NULL ) postorder(node->getLeft());
             if( node->getRight()!= NULL ) postorder(node->getRight());
-            printf( " [%c] ", node->getData());
+            cout <<" [" << (char)node->getData() <<"] ";
         }
     }
 };

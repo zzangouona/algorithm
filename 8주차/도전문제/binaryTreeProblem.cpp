@@ -1,5 +1,5 @@
 #include "BinaryTree.h"
-#include <cstdio>
+
 
 int main()
 {
@@ -22,11 +22,12 @@ int main()
     tree.postorder();
     tree.levelorder();
 
-    printf("\n  노드의 개수 : %d", tree.getCount());
-    printf("\n  단말 노드의 개수 : %d", tree.getLeafCount());
-    printf("\n  트리의 높이 : %d", tree.getHeight());
 
-    printf("\n");
+    cout << endl << "  노드의 개수 : " << tree.getCount();
+    cout << endl << "  단말 노드의 개수 : " << tree.getLeafCount();
+    cout << endl << "  트리의 높이 : "  <<tree.getHeight();
+
+    cout << endl;
 
     return 0;
 }
